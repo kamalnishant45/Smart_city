@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carbon Footprint Calculator</title>
+<style>
+    /* Basic CSS for styling */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    h1, h2, h3 {
+        text-align: center;
+    }
+    label {
+        font-weight: bold;
+    }
+    input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .results {
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Carbon Footprint Calculator</h1>
+    <div id="home">
+        <h2>Home Emissions</h2>
+        <div id="electricity">
+            <h3>Electricity</h3>
+            <label for="electricityUsage">kWh</label>
+            <input type="number" id="electricityUsage" placeholder="Enter electricity usage">
+        </div>
+        <div id="naturalGas">
+            <h3>Natural Gas</h3>
+            <label for="naturalGasUsage">Therms</label>
+            <input type="number" id="naturalGasUsage" placeholder="Enter natural gas usage">
+        </div>
+        <div id="heatingOil">
+            <h3>Heating Oil</h3>
+            <label for="heatingOilUsage">US Gallons</label>
+            <input type="number" id="heatingOilUsage" placeholder="Enter heating oil usage">
+        </div>
+        <div id="coal">
+            <h3>Coal</h3>
+            <label for="coalUsage">kWh</label>
+            <input type="number" id="coalUsage" placeholder="Enter coal usage">
+        </div>
+        <div id="lpg">
+            <h3>LPG (Liquefied Petroleum Gas)</h3>
+            <label for="lpgUsage">US Gallons</label>
+            <input type="number" id="lpgUsage" placeholder="Enter LPG usage">
+        </div>
+        <div id="other">
+            <h3>Other</h3>
+            <label for="otherUsage">Enter usage</label>
+            <input type="number" id="otherUsage" placeholder="Enter usage">
+        </div>
+        <button onclick="calculateTotal()">Calculate</button>
+        <div id="results" class="results"></div>
+    </div>
+</div>
+
+<script>
+    function calculateTotal() {
+        var electricityUsage = parseFloat(document.getElementById("electricityUsage").value);
+        var naturalGasUsage = parseFloat(document.getElementById("naturalGasUsage").value);
+        var heatingOilUsage = parseFloat(document.getElementById("heatingOilUsage").value);
+        var coalUsage = parseFloat(document.getElementById("coalUsage").value);
+        var lpgUsage = parseFloat(document.getElementById("lpgUsage").value);
+        var otherUsage = parseFloat(document.getElementById("otherUsage").value);
+        
+        var electricityFactor = 0.3584; // kgCO2e/kWh
+        var naturalGasFactor = 0.5; // Placeholder factor for natural gas
+        var heatingOilFactor = 0.5; // Placeholder factor for heating oil
+        var coalFactor = 0.8; // Placeholder factor for coal
+        var lpgFactor = 2.5; // Placeholder factor for LPG
+        var otherFactor = 0.5; // Placeholder factor for other emissions
+        
+        var electricityEmissions = electricityUsage * electricityFactor;
+        var naturalGasEmissions = naturalGasUsage * naturalGasFactor;
+        var heatingOilEmissions = heatingOilUsage * heatingOilFactor;
+        var coalEmissions = coalUsage * coalFactor;
+        var lpgEmissions = lpgUsage * lpgFactor;
+        var otherEmissions = otherUsage * otherFactor;
+        
+        var totalEmissions = electricityEmissions + naturalGasEmissions + heatingOilEmissions + coalEmissions + lpgEmissions + otherEmissions;
+        
+        var resultsText = "Electricity emissions: " + electricityEmissions.toFixed(2) + " kg CO2e<br>";
+        resultsText += "Natural Gas emissions: " + naturalGasEmissions.toFixed(2) + " kg CO2e<br>";
+        resultsText += "Heating Oil emissions: " + heatingOilEmissions.toFixed(2) + " kg CO2e<br>";
+        resultsText += "Coal emissions: " + coalEmissions.toFixed(2) + " kg CO2e<br>";
+        resultsText += "LPG emissions: " + lpgEmissions.toFixed(2) + " kg CO2e<br>";
+        resultsText += "Other emissions: " + otherEmissions.toFixed(2) + " kg CO2e<br>";
+        resultsText += "<h2>Total Emissions</h2>";
+        resultsText += "Total emissions: " + totalEmissions.toFixed(2) + " kg CO2e";
+
+        document.getElementById("results").innerHTML = resultsText;
+    }
+
+</script>
+</body>
+</html>

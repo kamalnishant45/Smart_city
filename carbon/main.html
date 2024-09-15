@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi-page Display</title>
+<style>
+    /* Basic CSS for styling */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url('https://img.freepik.com/free-photo/factory-producing-co2-pollution_23-2150858299.jpg'); /* Background image URL */
+        background-size: cover;
+        background-position: center;
+    }
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+    }
+    .tabs {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .tab {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px 5px 0 0;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+    .tab.active {
+        background-color: #0056b3;
+    }
+    .content {
+        display: none;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 0 0 5px 5px;
+        background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+    }
+    .content.active {
+        display: block;
+    }
+    iframe {
+        width: 100%; /* Adjust width as needed */
+        height: 350px; /* Adjust height as needed */
+    }
+    /* Add styles for images */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="tabs">
+        <button class="tab" onclick="showPage('page1')">Page 1</button>
+        <button class="tab" onclick="showPage('page2')">Page 2</button>
+        <button class="tab" onclick="showPage('page3')">Page 3</button>
+    </div>
+    <div id="page1" class="content active">
+        <h2>Page 1 Content</h2>
+        <iframe src="homes.html"></iframe>
+    </div>
+    <div id="page2" class="content">
+        <h2>Page 2 Content</h2>
+        <iframe src="transport.html"></iframe>
+    </div>
+    <div id="page3" class="content">
+        <h2>Page 3 Content</h2>
+        <iframe src="secondary.html"></iframe>
+    </div>
+</div>
+
+<script>
+    function showPage(pageId) {
+        // Hide all content sections
+        var contents = document.querySelectorAll('.content');
+        contents.forEach(function(content) {
+            content.classList.remove('active');
+        });
+
+        // Deactivate all tabs
+        var tabs = document.querySelectorAll('.tab');
+        tabs.forEach(function(tab) {
+            tab.classList.remove('active');
+        });
+
+        // Show the selected content section
+        document.getElementById(pageId).classList.add('active');
+
+        // Activate the corresponding tab
+        document.querySelector('button[data-page="' + pageId + '"]').classList.add('active');
+    }
+
+</script>
+</body>
+</html>

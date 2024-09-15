@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transportation Carbon Footprint Calculator</title>
+<style>
+    /* Basic CSS for styling */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    h1, h2, h3 {
+        text-align: center;
+    }
+    label {
+        font-weight: bold;
+    }
+    input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .results {
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Transportation Carbon Footprint Calculator</h1>
+    <div id="vehicles">
+        <h2>Vehicles</h2>
+        <div id="car">
+            <h3>Car</h3>
+            <label for="carMileage">Mileage (km/L)</label>
+            <input type="number" id="carMileage" placeholder="Enter car mileage">
+            <label for="carUsage">Usage (liters/year)</label>
+            <input type="number" id="carUsage" placeholder="Enter car usage">
+        </div>
+        <div id="motorcycle">
+            <h3>Motorcycle</h3>
+            <label for="motorcycleMileage">Mileage (km/L)</label>
+            <input type="number" id="motorcycleMileage" placeholder="Enter motorcycle mileage">
+            <label for="motorcycleUsage">Usage (liters/year)</label>
+            <input type="number" id="motorcycleUsage" placeholder="Enter motorcycle usage">
+        </div>
+        <div id="bus">
+            <h3>Bus</h3>
+            <label for="busMileage">Mileage (km/L)</label>
+            <input type="number" id="busMileage" placeholder="Enter bus mileage">
+            <label for="busUsage">Usage (liters/year)</label>
+            <input type="number" id="busUsage" placeholder="Enter bus usage">
+        </div>
+        <div id="train">
+            <h3>Train</h3>
+            <label for="trainMileage">Mileage (km/L)</label>
+            <input type="number" id="trainMileage" placeholder="Enter train mileage">
+            <label for="trainUsage">Usage (liters/year)</label>
+            <input type="number" id="trainUsage" placeholder="Enter train usage">
+        </div>
+        <div id="plane">
+            <h3>Plane</h3>
+            <label for="planeMileage">Mileage (km/L)</label>
+            <input type="number" id="planeMileage" placeholder="Enter plane mileage">
+            <label for="planeUsage">Usage (liters/year)</label>
+            <input type="number" id="planeUsage" placeholder="Enter plane usage">
+        </div>
+        <button onclick="calculateTotal()">Calculate</button>
+        <div id="results" class="results"></div>
+    </div>
+</div>
+
+<script>
+    function calculateTotal() {
+        var carMileage = parseFloat(document.getElementById("carMileage").value) || 0;
+        var carUsage = parseFloat(document.getElementById("carUsage").value) || 0;
+        var motorcycleMileage = parseFloat(document.getElementById("motorcycleMileage").value) || 0;
+        var motorcycleUsage = parseFloat(document.getElementById("motorcycleUsage").value) || 0;
+        var busMileage = parseFloat(document.getElementById("busMileage").value) || 0;
+        var busUsage = parseFloat(document.getElementById("busUsage").value) || 0;
+        var trainMileage = parseFloat(document.getElementById("trainMileage").value) || 0;
+        var trainUsage = parseFloat(document.getElementById("trainUsage").value) || 0;
+        var planeMileage = parseFloat(document.getElementById("planeMileage").value) || 0;
+        var planeUsage = parseFloat(document.getElementById("planeUsage").value) || 0;
+        
+        var carEmissions = carUsage / carMileage * 2.32; // Assume 2.32 kg CO2e per liter of gasoline
+        var motorcycleEmissions = motorcycleUsage / motorcycleMileage * 2.32; // Assume 2.32 kg CO2e per liter of gasoline
+        var busEmissions = busUsage / busMileage * 2.32; // Assume 2.32 kg CO2e per liter of gasoline
+        var trainEmissions = trainUsage / trainMileage * 2.32; // Assume 2.32 kg CO2e per liter of gasoline
+        var planeEmissions = planeUsage / planeMileage * 2.32; // Assume 2.32 kg CO2e per liter of gasoline
+        
+        var totalEmissions = carEmissions + motorcycleEmissions + busEmissions + trainEmissions + planeEmissions;
+        
+        var resultsText = "Car emissions: " + carEmissions.toFixed(2) + " kg CO2e<br>";
+        resultsText += "Motorcycle emissions: " + motorcycleEmissions.toFixed(2) + " kg CO2e<br>";
+        resultsText += "Bus emissions: " + busEmissions.toFixed(2) + " kg CO2e<br>";
+        resultsText += "Train emissions: " + trainEmissions.toFixed(2) + " kg CO2e<br>";
+        resultsText += "Plane emissions: " + planeEmissions.toFixed(2) + " kg CO2e<br>";
+        resultsText += "<h2>Total Emissions</h2>";
+        resultsText += "Total emissions: " + totalEmissions.toFixed(2) + " kg CO2e";
+
+        document.getElementById("results").innerHTML = resultsText;
+    }
+</script>
+</body>
+</html>
