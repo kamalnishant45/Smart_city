@@ -5,7 +5,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-image: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Replace the URL with the image URL you want to use */
+    background-image: url("CUproject.jpeg"); /* Replace the URL with the image URL you want to use */
     background-size: cover;
     background-position: bottom;
 
@@ -25,9 +25,9 @@ body {
 }
 
 .rental {
-    position: fixed;
+    position: fixed ;
     bottom: 0px;
-    left: 0px;
+    left: 50%;
     z-index: 1000; /* Ensures the logo is above other elements */
 }
 
@@ -37,47 +37,93 @@ body {
     opacity: 1;
 }
 
-/* Navigation Box styles */
+/* Style for the navigation box */
+/* Style for the navigation box */
 .navigation-box {
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
-    color: white;
-    padding: 40px;
+    display: flex;
+    justify-content: space-between; /* Space between left and right sections */
     position: fixed;
-    bottom: 0;
+    top: 20%; /* Center the navigation vertically */
     width: 100%;
-    box-sizing: border-box;
-    text-align: center;
+    pointer-events: none; /* Ensure background is clickable */
 }
 
-/* Navigation styles */
-.navigation-box nav ul {
+/* Left navigation menu */
+.left-nav {
+    width: 150px; /* Small width */
+    height: auto;
+    position: fixed;
+    left: 0;
+    top: 20%; /* Adjust vertical position */
+    padding: 10px;
+    background-color: rgba(137, 233, 89, 0.8); /* Semi-transparent background */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    pointer-events: all; /* Ensure links are clickable */
+}
+
+.left-nav nav ul {
     list-style-type: none;
-    margin: 0;
     padding: 0;
 }
 
-.navigation-box img {
-    position: absolute; /* Position the logo relative to its containing element */
-    top: 20px; /* Adjust the top position */
-    left: 20px; /* Adjust the left position */
+.left-nav nav ul li {
+    margin: 15px 0;
 }
 
-.navigation-box nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-.navigation-box nav ul li a {
+.left-nav nav ul li a {
     text-decoration: none;
-    color: white;
+    font-size: 14px;
+    color: #333;
+    display: block;
     padding: 10px;
-    border-radius: 25px;
-    transition: background-color 0.3s;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover transition */
 }
 
-.navigation-box nav ul li a:hover {
-    background-color: #4CAF50; /* Change to the desired hover color */
+/* Hover effect for left-nav links */
+.left-nav nav ul li a:hover {
+    background-color: #007bff; /* Change background color on hover */
+    color: #fff; /* Change text color on hover */
 }
+
+/* Right navigation menu */
+.right-nav {
+    width: 150px; /* Small width */
+    height: auto;
+    position: fixed;
+    right: 0;
+    top: 20%; /* Adjust vertical position */
+    padding: 10px;
+    background-color: rgba(137, 233, 89, 0.8); /* Semi-transparent background */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    pointer-events: all; /* Ensure links are clickable */
+}
+
+.right-nav nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.right-nav nav ul li {
+    margin: 15px 0;
+}
+
+.right-nav nav ul li a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #333;
+    display: block;
+    padding: 10px;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover transition */
+}
+
+/* Hover effect for right-nav links */
+.right-nav nav ul li a:hover {
+    background-color: #007bff; /* Change background color on hover */
+    color: #fff; /* Change text color on hover */
+}
+
 
 .symbol {
     margin-right: 5px; /* Adjust spacing between symbol and text */
