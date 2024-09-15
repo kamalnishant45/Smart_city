@@ -9,66 +9,114 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-image: url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Change to your desired background image URL */
+            background-image: url("images.jpg"); /* Change to your desired background image URL */
             background-size: cover;
             background-position: bottom;
             background-repeat: no-repeat;
             height: 100vh;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
             text-align: center;
             color: white;
+            padding: 50px;
         }
         .container {
-            max-width: 800px;
+            max-width: 600px;
             padding: 20px;
             background-color: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
+            text-align: center;
         }
-        h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
+        .iframe-box {
+            position: relative;
+            width: 600px; /* Adjust width as needed */
+            height: 0;
+            padding-top: 50.25%; /* 16:9 aspect ratio */
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(239, 242, 249, 0.16);
         }
-        h2 {
-            font-size: 24px;
-            margin-top: 30px;
-            margin-bottom: 10px;
+        .iframe-box iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            border: none;
         }
-        p {
-            font-size: 18px;
-            line-height: 1.5;
+        .left-side {
+            width: 65%;
+            padding-left: 100px;
+            left: 600px;
+            padding-top: 520px;
+        }
+        .right-side{
+            width: 65%;
+            padding-right: 100px;
+            padding-top: 520px;
+        }
+        .middle {
+            width: 100%;
+        }
+        .page-layout {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 300%;
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <h1>Basic Data and Statistics</h1>
-    <p>Basic data and statistics provide essential information for understanding and analyzing various aspects of a community, organization, or study.</p>
+    
+    <div class="page-layout">
+        <!-- Left Canva Element -->
+        <div class="left-side">
+            <div class="iframe-box">
+                <iframe loading="lazy"
+                    src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGQz2HYFPY&#x2F;dVgtGscOPK9tJuRO1Op66w&#x2F;view?embed"
+                    allowfullscreen="allowfullscreen" allow="fullscreen">
+                </iframe>
+            </div>
+        </div>
 
-    <h2>Key Areas:</h2>
-    <div id="data-statistics">
-        <h3>Data Collection</h3>
-        <p>Data is collected through methods such as xxxxx and xxxxx.</p>
+        <!-- Text Section in the Middle -->
+        <div class="middle">
+            <div class="container">
+                <h1>Basic Data and Statistics</h1>
+                <p>    Total National CO₂ Emissions: ~2.88 billion metric tons (2021)
+                    Contribution by Cities: Urban areas are responsible for nearly 50% of India's emissions.
+                    Major Sectors:
+                        Transport (major contributor in cities)
+                        Energy sector (coal-heavy)
+                        Industry (cement, steel, and chemical industries)
+                        Residential energy use (increasing demand for electricity in urban homes)</p>
 
-        <h3>Key Metrics</h3>
-        <p>Important metrics include xxxxx and xxxxx, which help in evaluating performance and trends.</p>
+                <h2>Key insights:</h2>
+                <div id="data-statistics">
+                    <ul>Transportation is the largest source of emissions in most Indian cities due to the growing number of vehicles.</ul>
+                       <ul> Electricity generation, particularly from coal, contributes significantly in cities like Chennai and Kolkata.</ul>
+                       <ul> Industrial activities play a major role, especially in cities like Mumbai, Chennai, and Delhi.</ul>
+                       <ul> Many cities have started initiatives to reduce CO₂ emissions through renewable energy adoption and public transport improvements, but progress is gradual.</ul>
+                </div>
+                <div style="width:55%;height:0;padding-bottom:100%;position:relative;"><iframe src="https://giphy.com/embed/aAy4947U1yIiQ" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
+            </div>
+            
+        </div>
 
-        <h3>Analysis and Reporting</h3>
-        <p>Data is analyzed to generate reports on xxxxx and xxxxx, providing insights for decision-making.</p>
+        <!-- Right Canva Element -->
+        <div class="right-side">
+            <div class="iframe-box">
+                <iframe loading="lazy"
+                    src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGQ0PADZ_4&#x2F;lz2YwxPmRNtY70EHykSkoA&#x2F;view?embed"
+                    allowfullscreen="allowfullscreen" allow="fullscreen">
+                </iframe>
+            </div>
+        </div>
     </div>
-</div>
-
-
+    
     <script>
-        // JavaScript code can be added here
-        // For example, you can add code to handle FAQ toggling
-        const faq = document.getElementById('faq');
-        faq.addEventListener('click', (event) => {
-            if (event.target.tagName === 'H3') {
-                event.target.nextElementSibling.classList.toggle('show');
-            }
-        });
+        // JavaScript code can be added here if necessary
     </script>
 
 </body>
