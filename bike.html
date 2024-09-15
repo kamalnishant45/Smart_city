@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bike Rental System</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url('https://thumbs.dreamstime.com/b/bike-rental-city-bikes-rent-rental-bicycles-dockmotor-50657361.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.8); /* semi-transparent white */
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        color: #333;
+        text-align: center;
+    }
+    form {
+        margin-top: 20px;
+        padding: 20px;
+        border-radius: 5px;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+    }
+    input[type="text"],
+    input[type="number"],
+    input[type="email"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+    .message {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .message.success {
+        color: #28a745;
+    }
+    .message.error {
+        color: #dc3545;
+    }
+    .login-links {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .login-links a {
+        color: #007bff;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Electric Bike Rental</h1>
+    <div class="login-links">
+        <a href="login.html">Login</a>
+        <span>|</span>
+        <a href="register.html">Signup</a>
+    </div>
+    <form id="rentalForm">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" required>
+        <label for="bikeID">Bike ID (QR Code):</label>
+        <input type="text" id="bikeID" required>
+        <label for="duration">Duration (in hours):</label>
+        <input type="number" id="duration" required>
+<a href="index.html"><h3>Choose a route</h3></a>
+        <input type="submit" value="Rent a Bike">
+    </form>
+    <div class="message" id="message"></div>
+</div>
+
+<script>
+    document.getElementById("rentalForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        // Simulate rental process (replace this with actual functionality)
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        const bikeID = document.getElementById("bikeID").value;
+        const duration = document.getElementById("duration").value;
+
+        // Example: Display success message
+        const messageElement = document.getElementById("message");
+        messageElement.innerHTML = `Bike rented successfully! <br> Name: ${name} <br> Email: ${email} <br> Phone: ${phone} <br> Bike ID: ${bikeID} <br> Duration: ${duration} hours`;
+        messageElement.classList.add("success");
+
+        // Clear form after submission
+        document.getElementById("rentalForm").reset();
+
+        // Remove success message after 5 seconds
+        setTimeout(function() {
+            messageElement.innerHTML = "";
+            messageElement.classList.remove("success");
+        }, 5000);
+    });
+</script>
+</body>
+</html>

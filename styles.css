@@ -1,0 +1,85 @@
+/* CSS for City Sustainability Website */
+
+/* Body styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Replace the URL with the image URL you want to use */
+    background-size: cover;
+    background-position: bottom;
+
+}
+
+.logo {
+    position: fixed;
+    top: 0px;
+    right: -30px;
+    z-index: 1000; /* Ensures the logo is above other elements */
+}
+
+.logo img {
+    width: 125px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    opacity: 1;
+}
+
+.rental {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    z-index: 1000; /* Ensures the logo is above other elements */
+}
+
+.rental img {
+    width: 125px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    opacity: 1;
+}
+
+/* Navigation Box styles */
+.navigation-box {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    color: white;
+    padding: 40px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Navigation styles */
+.navigation-box nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation-box img {
+    position: absolute; /* Position the logo relative to its containing element */
+    top: 20px; /* Adjust the top position */
+    left: 20px; /* Adjust the left position */
+}
+
+.navigation-box nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.navigation-box nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    border-radius: 25px;
+    transition: background-color 0.3s;
+}
+
+.navigation-box nav ul li a:hover {
+    background-color: #4CAF50; /* Change to the desired hover color */
+}
+
+.symbol {
+    margin-right: 5px; /* Adjust spacing between symbol and text */
+    font-size: 24px;
+}

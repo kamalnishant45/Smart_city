@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback and Contact</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Change to your desired background image URL */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        .container {
+            max-width: 600px;
+            padding: 50px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: black;
+            background-color: rgba(255, 255, 255, 0.8);
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Feedback and Contact</h2>
+        <form id="feedbackForm">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <input type="text" id="email" name="email" placeholder="Your Email" required>
+            <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("feedbackForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var message = document.getElementById("message").value;
+
+            // Email validation regex pattern
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            // Check if email matches the pattern
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            // If email is valid, proceed with form submission
+            var formData = new FormData(this);
+            fetch("submit_feedback.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message); // Show success or error message
+                // Reset form
+                document.getElementById("feedbackForm").reset();
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+        });
+    </script>
+
+</body>
+</html>

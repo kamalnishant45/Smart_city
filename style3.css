@@ -1,0 +1,44 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 20px;
+  background-color: green; /* Red background */
+  background-image: url('https://i.pinimg.com/originals/7b/ee/24/7bee247b258dafe0ed7d913d0c1e2b4b.jpg') ;
+  background-size: cover;
+}
+
+h2 {
+  color: red; /* Blue heading color */
+  text-align: center;
+}
+
+form {
+  max-width: 400px;
+  margin: auto;
+  background-color: white; /* Semi-transparent white background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  background-color: #32cd32; /* Lime green submit button */
+  color: #fff;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #2e8b57; /* Sea green on hover */
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Development</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://plus.unsplash.com/premium_photo-1672116452571-896980a801c8?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Change to your desired background image URL */
+            background-size: cover;
+            background-position: bottom;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 24px;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Urban Development</h1>
+        <p>Urban development refers to the planning and construction of infrastructure, buildings, and amenities in urban areas to support the growing population and improve quality of life.</p>
+        
+        <h2>Common Questions about Urban Development:</h2>
+        <div id="faq">
+            <h3>What are some examples of urban development projects?</h3>
+            <p>Examples of urban development projects include the construction of roads, bridges, housing complexes, parks, shopping malls, and public transportation systems.</p>
+
+            <h3>What role does urban development play in economic growth?</h3>
+            <p>Urban development plays a crucial role in economic growth by creating job opportunities, attracting investments, and improving infrastructure, which in turn stimulates business activities and promotes prosperity.</p>
+            
+            <h3>How can communities participate in urban development planning?</h3>
+            <p>Communities can participate in urban development planning through public consultations, community meetings, and involvement in decision-making processes. This ensures that the development projects meet the needs and aspirations of the residents.</p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript code can be added here
+        // For example, you can add code to handle FAQ toggling
+        const faq = document.getElementById('faq');
+        faq.addEventListener('click', (event) => {
+            if (event.target.tagName === 'H3') {
+                event.target.nextElementSibling.classList.toggle('show');
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #chatContainer {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        #chatOutput {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        #chatInput {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #sendMessage {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #sendMessage:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Interactive Chatbot</h2>
+    <div id="chatContainer">
+        <div id="chatOutput"></div>
+        <input type="text" id="chatInput" placeholder="Ask about reducing your carbon footprint...">
+        <button id="sendMessage">Send</button>
+    </div>
+
+    <script>
+        document.getElementById("sendMessage").addEventListener("click", function() {
+            const chatInput = document.getElementById("chatInput").value.toLowerCase();
+            
+            // Replace 'YOUR_MOCKY_URL' with your Mocky URL
+            fetch('https://run.mocky.io/v3/5dc98de4-62ea-4f2b-a15d-cbb0d583abdd', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ question: chatInput })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const chatOutput = document.getElementById("chatOutput");
+                let reply = data.responses.default;
+                
+                // Handle different cases based on keywords in the user's input
+                if (data.responses) {
+                    if (chatInput.includes('travel') && chatInput.includes('house')) {
+                        reply = data.responses.mixed.travel_house || reply;
+                    } else if (chatInput.includes('travel') && chatInput.includes('waste')) {
+                        reply = data.responses.mixed.travel_waste || reply;
+                    } else if (chatInput.includes('house') && chatInput.includes('energy')) {
+                        reply = data.responses.mixed.house_energy || reply;
+                    } else if (chatInput.includes('community') && chatInput.includes('climate')) {
+                        reply = data.responses.mixed.community_climate || reply;
+                    } else if (chatInput.includes('travel') || chatInput.includes('transportation')) {
+                        reply = data.responses.traveling.basic || reply;
+                    } else if (chatInput.includes('house') || chatInput.includes('home')) {
+                        reply = data.responses.house.basic || reply;
+                    } else if (chatInput.includes('waste')) {
+                        reply = data.responses.waste_management.basic || reply;
+                    } else if (chatInput.includes('energy')) {
+                        reply = data.responses.energy_and_utilities.basic || reply;
+                    } else if (chatInput.includes('community')) {
+                        reply = data.responses.community_engagement.basic || reply;
+                    } else if (chatInput.includes('climate')) {
+                        reply = data.responses.climate_action.basic || reply;
+                    }
+                }
+
+                chatOutput.innerHTML += `<p><strong>You:</strong> ${chatInput}</p>`;
+                chatOutput.innerHTML += `<p><strong>Bot:</strong> ${reply}</p>`;
+                chatInput.value = '';
+                chatOutput.scrollTop = chatOutput.scrollHeight;
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
