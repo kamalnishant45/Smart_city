@@ -3,120 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Urban Development</title>
+    <title>Green Smart City</title>
     <style>
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-image: url("images.jpg"); /* Change to your desired background image URL */
+            background-image: url("images.jpg"); /* Update with actual image */
             background-size: cover;
-            background-position: bottom;
+            background-position: center;
             background-repeat: no-repeat;
-            height: 100vh;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            text-align: center;
+            min-height: 100vh;
             color: white;
-            padding: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        .container {
-            max-width: 600px;
+
+        .page-layout {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+            grid-gap: 20px; /* Space between the sections */
+            max-width: 1200px;
+            width: 100%;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
-            text-align: center;
         }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        h1, h2 {
+            margin-bottom: 10px;
+        }
+
+        p, ul {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
         .iframe-box {
             position: relative;
-            width: 600px; /* Adjust width as needed */
-            height: 0;
-            padding-top: 50.25%; /* 16:9 aspect ratio */
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(239, 242, 249, 0.16);
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
+
         .iframe-box iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            border: none;
+        }
+
+        .giphy-box {
+            margin-top: 20px;
+            position: relative;
+            width: 100%;
+            height: 300px;
+        }
+
+        .giphy-box iframe {
             position: absolute;
             width: 100%;
             height: 100%;
-            top: 0;
-            left: 0;
-            border: none;
+            border-radius: 10px;
         }
-        .left-side {
-            width: 65%;
-            padding-left: 100px;
-            left: 600px;
-            padding-top: 520px;
-        }
-        .right-side{
-            width: 65%;
-            padding-right: 100px;
-            padding-top: 520px;
-        }
-        .middle {
-            width: 100%;
-        }
-        .page-layout {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 300%;
+
+        @media (max-width: 768px) {
+            .page-layout {
+                grid-template-columns: 1fr; /* Stack sections in one column */
+            }
         }
     </style>
 </head>
 <body>
-    
+
     <div class="page-layout">
-        <!-- Left Canva Element -->
-        <div class="left-side">
-            <div class="iframe-box">
-                <iframe loading="lazy"
-                    src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGQz2HYFPY&#x2F;dVgtGscOPK9tJuRO1Op66w&#x2F;view?embed"
-                    allowfullscreen="allowfullscreen" allow="fullscreen">
-                </iframe>
+        <!-- Left Section with Canva Element -->
+        <div class="iframe-box">
+            <iframe loading="lazy"
+                src="https://www.canva.com/design/DAGQz2HYFPY/dVgtGscOPK9tJuRO1Op66w/view?embed"
+                allowfullscreen></iframe>
+        </div>
+
+        <!-- Middle Section with Text Content -->
+        <div class="container">
+            <h1>Green Smart City: Data and Statistics</h1>
+            <p>India's total CO₂ emissions reached ~2.88 billion metric tons in 2021. Urban areas contribute nearly 50% of these emissions.</p>
+
+            <h2>Key Insights:</h2>
+            <ul>
+                <li>Transportation is the largest source of emissions in most Indian cities.</li>
+                <li>Coal-based electricity generation contributes significantly in cities like Chennai and Kolkata.</li>
+                <li>Industrial activities in Mumbai, Chennai, and Delhi are major contributors to urban emissions.</li>
+                <li>Cities are slowly adopting renewable energy and public transport improvements to reduce CO₂ emissions.</li>
+            </ul>
+
+            <!-- Giphy Embed -->
+            <div class="giphy-box">
+                <iframe src="https://giphy.com/embed/aAy4947U1yIiQ" frameBorder="0" allowFullScreen></iframe>
             </div>
         </div>
 
-        <!-- Text Section in the Middle -->
-        <div class="middle">
-            <div class="container">
-                <h1>Basic Data and Statistics</h1>
-                <p>    Total National CO₂ Emissions: ~2.88 billion metric tons (2021)
-                    Contribution by Cities: Urban areas are responsible for nearly 50% of India's emissions.
-                    Major Sectors:
-                        Transport (major contributor in cities)
-                        Energy sector (coal-heavy)
-                        Industry (cement, steel, and chemical industries)
-                        Residential energy use (increasing demand for electricity in urban homes)</p>
-
-                <h2>Key insights:</h2>
-                <div id="data-statistics">
-                    <ul>Transportation is the largest source of emissions in most Indian cities due to the growing number of vehicles.</ul>
-                       <ul> Electricity generation, particularly from coal, contributes significantly in cities like Chennai and Kolkata.</ul>
-                       <ul> Industrial activities play a major role, especially in cities like Mumbai, Chennai, and Delhi.</ul>
-                       <ul> Many cities have started initiatives to reduce CO₂ emissions through renewable energy adoption and public transport improvements, but progress is gradual.</ul>
-                </div>
-                <div style="width:55%;height:0;padding-bottom:100%;position:relative;"><iframe src="https://giphy.com/embed/aAy4947U1yIiQ" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
-            </div>
-            
-        </div>
-
-        <!-- Right Canva Element -->
-        <div class="right-side">
-            <div class="iframe-box">
-                <iframe loading="lazy"
-                    src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGQ0PADZ_4&#x2F;lz2YwxPmRNtY70EHykSkoA&#x2F;view?embed"
-                    allowfullscreen="allowfullscreen" allow="fullscreen">
-                </iframe>
-            </div>
+        <!-- Right Section with Canva Element -->
+        <div class="iframe-box">
+            <iframe loading="lazy"
+                src="https://www.canva.com/design/DAGQ0PADZ_4/lz2YwxPmRNtY70EHykSkoA/view?embed"
+                allowfullscreen></iframe>
         </div>
     </div>
-    
+
     <script>
-        // JavaScript code can be added here if necessary
+        // Add JavaScript if needed
     </script>
 
 </body>
